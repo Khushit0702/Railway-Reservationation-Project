@@ -5,8 +5,10 @@
 #include <string>
 #include < stdlib.h >
 using namespace std;
+
 int cost1;
-class route
+
+class route//Class to find the shortest route and calculate the cost 
 {
     int c = 0;
      int graph[4][4];
@@ -91,7 +93,7 @@ public:
         return amt; 
     }
    
-    friend class train;
+    friend class train;//Using friend class to give access to train class
 };
 
 class train
@@ -99,7 +101,7 @@ class train
 public:
     string tname, des,sou;
     int pnr,n;
-    int* seat = new int[n];
+    int* seat = new int[n];//Dynamic allocation of memory
 
     int detail()
     {
@@ -136,8 +138,8 @@ class passenger
 public:
     int np;
     string name[10];
-    char* g = new char[np];
-    int* age = new int[np];
+    char* g = new char[np];//Dynamic allocation of memory
+    int* age = new int[np];//Dynamic allocation of memory
     int input()
     {
         cout << "Enter number of passengers: " << endl;
@@ -164,7 +166,7 @@ public:
 
 };
 
-class ticket : public passenger,public train, public route 
+class ticket : public passenger,public train, public route //Multiple Inheritance 
 {
     int i;    
 
